@@ -11,10 +11,16 @@ LIMIT 10;
 --Query 2: Compiles average revenue for period of month and 3 months
 --Used flags: None
 
+WITH monthly_orders AS (
+    SELECT Invoice, MAX(Year) AS Year, MAX(Month) AS Month, SUM(Revenue) as total_sales
+    FROM sales
+    WHERE IsCancelled = 0 AND IsServiceCode = 0
+    GROUP BY Invoice
+    )
 SELECT Year, Month,
 ROUND(AVG(Revenue), 2) AS month_average_revenue,
 ROUND(AVG(AVG(Revenue)) OVER(ORDER BY Year, Month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW), 2) AS months_3_average_revenue
-FROM sales
+FROM monthly_orders
 GROUP BY Year, Month
 ORDER BY Year, Month;
 
@@ -44,10 +50,15 @@ FROM sales;
 --Query 5: Counts the number of guest and regular users, and their average check per order
 --Used flags: IsGuest, IsCancelled
 
+WITH total_sales AS(
+    SELECT Invoice, MAX(IsGuest) AS IsGuest, SUM(Revenue) AS order_total
+    FROM sales
+    WHERE IsCancelled = 0 AND IsServiceCode = 0
+    GROUP BY Invoice
+    )
 SELECT IsGuest, ROUND(AVG(Revenue), 2) AS average_value,
 COUNT(DISTINCT Invoice) AS total_count
-FROM sales
-WHERE IsCancelled = 0
+FROM total_sales
 GROUP BY IsGuest;
 
 --Query 6: Counts the average and total revenue per day
