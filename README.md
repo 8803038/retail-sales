@@ -24,16 +24,16 @@ Full report - in [data_quality_report.md](reports/data_quality_report.md).
 1.2. Самая большой средний чек в году приходится на декабрь (в обоих годах, средняя чек > 700), самая меньший - в феврале и апреле 2010 года (< 330).
 1.3. Самый прибыльный сезон - последний квартал года (окт-дек). 
 1.4. Большая часть выручки приходится на United Kingdom (85 %), меньшая (среди стран с положительной выручкой) Saudi Arabia (<0.01%).
-1.5. Самый продаваемый товар - REGENCY CAKESTAND 3 TIER (344563.25).
+1.5. Самый прибыльный товар по чистой выручке - REGENCY CAKESTAND 3 TIER (344563.25).
 2. Соотношение отмененных продаж к общим продажам - 7.28 %, соотношение списанных долгов к общим продажам - 0.7 %
 3. Количество зарегестрированных пользователей (44876), намного больше чем гостевых (8752) (из них после исключения отменённых — 36975 и 8361 соответственно). Средний чек зарегестрированного пользователя также выше, чем у гостевого пользователя - 479.88 и 367.24, соответственно.
 
 1.1. The largest share of revenue by day of the week falls on Thursday (20.48%), and the smallest on Saturday (0.05%); the store is likely closed on that day.
 1.2. The highest average transaction value of the year occurs in December (in both years, the average exceeds 700), while the lowest occurs in February and April 2010 (below 330).
-1.3. The most profitable season is the final quarter of the year (Oct–Dec).
+1.3. The most profitable season - final quarter of the year (Oct–Dec).
 1.4. The largest share of revenue comes from the United Kingdom (85%), and the smallest (among countries with positive revenue) from Saudi Arabia (<0.01%).
-1.5. The best-selling product is the REGENCY CAKESTAND 3 TIER (344,563.25).
-2. The ratio of cancelled sales to total sales is 7.28%; the ratio of written-off debts to total sales is 0.7%.
+1.5. Most profitable product by net revenue - REGENCY CAKESTAND 3 TIER (344,563.25).
+2. The ratio of cancelled sales to total sales - 7.28%; the ratio of written-off debts to total sales - 0.7%.
 3. The number of registered users (44,876) is significantly higher than that of guest users (8,752) (or 36,975 and 8,361, respectively, after excluding cancelled orders). The average order value for registered users is also higher than for guest users: 479.88 versus 367.24.
 
 ## Структура репозитория / Repository Structure
@@ -41,7 +41,7 @@ Full report - in [data_quality_report.md](reports/data_quality_report.md).
 .
 ├── data
 │   ├── processed
-│   │   ├── filtered_combined.parquet
+│   │   ├── retail_cleaned.parquet
 │   │   └── retail.db
 │   └── raw
 │       └── online_retail_II.xlsx
